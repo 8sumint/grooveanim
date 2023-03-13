@@ -1,1 +1,35 @@
 meows softly
+
+--
+
+requires a midi source (some loopback driver?)
+or if you're cool use a hardware sequencer
+
+editor keys:
+    enter   enter the editor
+    arrows  move focused instrument
+        +shift, ctrl for different amounts
+    numbers select focused instrument (shift+numbers for more)
+    C       focus chords
+    D       focus drums
+    A       toggle showing all instruments
+    R       reload setup from disk
+    S       save setup back to disk
+    Q       quit
+
+oh you can also click the mouse to move the focused instrument there
+
+text animation:
+setup lines in the json..
+imagine your base note is 30... the map would be
+
+    36 set mode based on velocity
+    35 reset everything
+    34 set visibility from note velocity (>64 is visible)
+    33 submit (copy buffered progress to progress in submit mode)
+    32 do "next" twice
+    31 "next": depending on mode go to next line or increase progress
+    30 reset line progress and go to next line
+
+and you can sequence that
+
