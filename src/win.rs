@@ -1,6 +1,7 @@
 use minifb::{Window, WindowOptions};
 use fontdue::Font;
 use std::cmp::min;
+use std::path::Path;
 
 use crate::{
     graphics::*, 
@@ -299,7 +300,7 @@ impl Win {
                 } else {
                     text_y - 20
                 };
-                let title = bitmap.path.split('.').collect::<Vec<&str>>()[0].to_string();
+                let title = Path::new(&bitmap.path).file_stem().unwrap().to_str().unwrap().to_string();
         
                 self.draw_plaintext(text_x, title_text_y, 16.0, title, TextDirection::Horizontal, &c_white);
             },

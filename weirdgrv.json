@@ -60,7 +60,7 @@
                 "note": 40,
                 "gfx": {
                     "gfx": "bitmap",
-                    "bitmap": "red_rough.bmp"
+                    "bitmap": "img/red_rough.bmp"
                 },
                 "decay_time": 30,
                 "style": "plain"
@@ -71,7 +71,7 @@
                 "note": 41,
                 "gfx": {
                     "gfx": "bitmap",
-                    "bitmap": "blue_rough.bmp"
+                    "bitmap": "img/blue_rough.bmp"
                 },
                 "decay_time": 30,
                 "style": "plain"
@@ -82,7 +82,7 @@
                 "note": 42,
                 "gfx": {
                     "gfx": "bitmap",
-                    "bitmap": "red_solid.bmp"
+                    "bitmap": "img/red_solid.bmp"
                 },
                 "decay_time": 30,
                 "style": "plain"
@@ -93,7 +93,7 @@
                 "note": 43,
                 "gfx": {
                     "gfx": "bitmap",
-                    "bitmap": "blue_solid.bmp"
+                    "bitmap": "img/blue_solid.bmp"
                 },
                 "decay_time": 30,
                 "style": "plain"
@@ -104,7 +104,7 @@
                 "note": 39,
                 "gfx": {
                     "gfx": "bitmap",
-                    "bitmap": "nijika.bmp"
+                    "bitmap": "img/nijika.bmp"
                 },
                 "decay_time": 50,
                 "style": "decay"
