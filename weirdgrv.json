@@ -62,7 +62,7 @@
                     "gfx": "bitmap",
                     "bitmap": "img/red_rough.bmp"
                 },
-                "decay_time": 30,
+                "decay_time": 20,
                 "style": "plain"
             },
             {
@@ -73,7 +73,7 @@
                     "gfx": "bitmap",
                     "bitmap": "img/blue_rough.bmp"
                 },
-                "decay_time": 30,
+                "decay_time": 20,
                 "style": "plain"
             },
             {
@@ -84,7 +84,7 @@
                     "gfx": "bitmap",
                     "bitmap": "img/red_solid.bmp"
                 },
-                "decay_time": 30,
+                "decay_time": 20,
                 "style": "plain"
             },
             {
@@ -95,7 +95,7 @@
                     "gfx": "bitmap",
                     "bitmap": "img/blue_solid.bmp"
                 },
-                "decay_time": 30,
+                "decay_time": 20,
                 "style": "plain"
             },
             {
@@ -119,7 +119,7 @@
             "base_note": 30,
             "direction": "horizontal",
             "lines": [
-                "no text in this one but hi meow～",
+                "hi meow～",
                 "これは日本語のテキスト見本"
             ],
             "text_style": "ByLine",
