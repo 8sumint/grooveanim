@@ -25,7 +25,7 @@ pub struct Win {
 
 impl Win {
     pub fn init(width: u32, height: u32) -> Self {
-        let font = include_bytes!("../misaki_gothic_2nd.ttf") as &[u8];
+        let font = include_bytes!("rsrc/misaki_gothic_2nd.ttf") as &[u8];
         let misaki = Font::from_bytes(font, fontdue::FontSettings::default()).unwrap();
 
         let mut w = Win {
@@ -496,7 +496,7 @@ impl Win {
 
     fn draw_arrow(&mut self, xpos: u32, ypos: u32, direction: Direction) {
         // cute
-        let arrow_bytes = include_bytes!("arrow.bmp");
+        let arrow_bytes = include_bytes!("rsrc/arrow.bmp");
         let arrow = Bitmap::from_data(arrow_bytes).unwrap();
         match direction {
             Direction::Up => todo!(),
