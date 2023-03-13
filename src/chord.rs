@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-use midi_msg::{MidiMsg, ChannelVoiceMsg, Channel};
+use midi_msg::{MidiMsg, ChannelVoiceMsg, Channel, ChannelModeMsg};
 
 use crate::midi::*;
 use crate::graphics::RGB;
@@ -87,6 +87,15 @@ impl MidiProcessor for Chord{
                     }
                 }
             },
+            MidiMsg::ChannelMode { channel, msg } => {
+                match msg {
+                    ChannelModeMsg::AllNotesOff 
+                    | ChannelModeMsg::AllSoundOff => {
+                        self.notes.clear();
+                    },
+                    _ => {}
+                }
+            }
             _ => {}
         }
     }
