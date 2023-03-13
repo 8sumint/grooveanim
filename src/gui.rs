@@ -1,6 +1,5 @@
-use midi_msg::Channel;
 use minifb::Key;
-use crate::{chord::Chord, drum::Drum, Setup};
+use crate::{chord::Chord, drum::Drum, Setup, midi::Channel};
 
 
 #[derive(Debug)]
@@ -45,7 +44,7 @@ impl KeyboardFocus {
     }
     pub fn get_focused_chord(&self, chords: &Vec<Chord>) -> Option<usize> {
         for (i, c) in chords.iter().enumerate() {
-            if c.channel == Channel::from_u8(self.index) {
+            if c.channel == Channel::from(self.index) {
                 return Some(i);
             }
         }

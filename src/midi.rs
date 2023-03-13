@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize, Deserializer, Serializer};
-use midi_msg::{Channel, MidiMsg};
+use midi_msg::MidiMsg;
 
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -9,37 +9,67 @@ pub struct Note {
     pub age: u32
 }
 
-pub fn unfrom_channel<S>(channel: &Channel, serializer: S) -> Result<S::Ok, S::Error>
-where
-    S: Serializer
-{
-    let c = *channel as u8 + 1;
-    serializer.serialize_str(&c.to_string())
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Channel {
+    Ch1,
+    Ch2,
+    Ch3,
+    Ch4,
+    Ch5,
+    Ch6,
+    Ch7,
+    Ch8,
+    Ch9,
+    Ch10,
+    Ch11,
+    Ch12,
+    Ch13,
+    Ch14,
+    Ch15,
+    Ch16
 }
 
-pub fn from_channel<'de, D>(deserializer: D) -> Result<Channel, D::Error>
-where
-    D: Deserializer<'de>
-{
-    let s: &str = Deserialize::deserialize(deserializer)?;
-    match s {
-        "1"  => Ok(Channel::Ch1),
-        "2"  => Ok(Channel::Ch2),
-        "3"  => Ok(Channel::Ch3),
-        "4"  => Ok(Channel::Ch4),
-        "5"  => Ok(Channel::Ch5),
-        "6"  => Ok(Channel::Ch6),
-        "7"  => Ok(Channel::Ch7),
-        "8"  => Ok(Channel::Ch8),
-        "9"  => Ok(Channel::Ch9),
-        "10" => Ok(Channel::Ch10),
-        "11" => Ok(Channel::Ch11),
-        "12" => Ok(Channel::Ch12),
-        "13" => Ok(Channel::Ch13),
-        "14" => Ok(Channel::Ch14),
-        "15" => Ok(Channel::Ch15),
-        "16" => Ok(Channel::Ch16),
-        &_ => Err(serde::de::Error::custom("invalid channel"))
+impl std::convert::From<u8> for Channel {
+    fn from(i: u8) -> Self {
+        match i {
+            0 => Channel::Ch1,
+            1 => Channel::Ch2,
+            2 => Channel::Ch3,
+            3 => Channel::Ch4,
+            4 => Channel::Ch5,
+            5 => Channel::Ch6,
+            6 => Channel::Ch7,
+            7 => Channel::Ch8,
+            8 => Channel::Ch9,
+            9 => Channel::Ch10,
+            10 => Channel::Ch11,
+            11 => Channel::Ch12,
+            12 => Channel::Ch13,
+            13 => Channel::Ch14,
+            14 => Channel::Ch15,
+            _ => Channel::Ch16,
+        }
+    }
+}
+
+impl Serialize for Channel {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        let c = *self as u8 + 1;
+        serializer.serialize_str(&c.to_string())
+    }
+}
+
+impl<'de> Deserialize<'de> for Channel {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let s: &str = Deserialize::deserialize(deserializer)?;
+        let channel_no = s.parse::<u8>().unwrap();
+        Ok(Channel::from(channel_no - 1))
     }
 }
 

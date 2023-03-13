@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-use midi_msg::{MidiMsg, ChannelVoiceMsg, Channel, ChannelModeMsg};
+use midi_msg::{MidiMsg, ChannelVoiceMsg, ChannelModeMsg};
 
 use crate::midi::*;
 use crate::graphics::RGB;
@@ -31,8 +31,6 @@ pub enum ChordStyle {
 pub struct Chord {
     pub xpos: u32,
     pub width: u32,
-    #[serde(serialize_with = "unfrom_channel")]
-    #[serde(deserialize_with = "from_channel")]
     pub channel: Channel,
     #[serde(skip_serializing)]
     #[serde(skip_deserializing)]
@@ -50,7 +48,7 @@ impl MidiProcessor for Chord{
     fn deal_with(&mut self, message: MidiMsg) {
         match message {
             MidiMsg::ChannelVoice {channel, msg} => {
-                if channel == self.channel {
+                if channel as u8 == self.channel as u8 {
                     match msg {
                         ChannelVoiceMsg::NoteOn { note, velocity } => {
                             self.notes.push(
@@ -87,7 +85,7 @@ impl MidiProcessor for Chord{
                     }
                 }
             },
-            MidiMsg::ChannelMode { channel, msg } => {
+            MidiMsg::ChannelMode { channel: _, msg } => {
                 match msg {
                     ChannelModeMsg::AllNotesOff 
                     | ChannelModeMsg::AllSoundOff => {
