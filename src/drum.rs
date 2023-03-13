@@ -20,6 +20,13 @@ impl MidiProcessor for Kit {
                                 }
                             }
                         },
+                        ChannelVoiceMsg::NoteOff { note, velocity: _ } => {
+                            for drum in &mut self.drums {
+                                if drum.note == note {
+                                    drum.state.release();
+                                }
+                            }
+                        },
                         _ => {}
                     }
                 }
@@ -69,22 +76,31 @@ pub enum DrumStyle {
 #[derive(Default, PartialEq)]
 pub struct DrumState {
     pub triggered: bool,
+    pub note_held: bool,
     pub age: u32,
 }
 impl DrumState {
     pub fn trigger(&mut self) {
         self.triggered = true;
+        self.note_held = true;
         self.age = 0;
     }
     pub fn reset(&mut self) {
         self.triggered = false;
+        self.note_held = false;
         self.age = 0;
     }
 
+    pub fn release(&mut self) {
+        self.note_held = false;
+    }
+
     pub fn tick_or_reset(&mut self, decay_time: u32) -> bool{
-        if self.age >= decay_time {
+        if self.age >= decay_time && !self.note_held {
             self.reset();
             false
+        } else if self.note_held {
+            true // don't increase age while held
         } else {
             self.age += 1;
             true
