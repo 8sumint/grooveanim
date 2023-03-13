@@ -1,0 +1,130 @@
+{
+    "midi_port_id": 1,
+    "global_transpose": -62,
+    "chords": [
+        {
+            "xpos": 110,
+            "width": 120,
+            "channel": "1",
+            "velocity_sense": false,
+            "style": {
+                "style": "plain"
+            },
+            "transpose": 12,
+            "color": "#53A9FF",
+            "shadow": "#3F48CC"
+        },
+        {
+            "xpos": 380,
+            "width": 95,
+            "channel": "2",
+            "velocity_sense": false,
+            "style": {
+                "style": "plain"
+            },
+            "transpose": 12,
+            "color": "#E71616",
+            "shadow": "#880015"
+        },
+        {
+            "xpos": 110,
+            "width": 120,
+            "channel": "3",
+            "velocity_sense": false,
+            "style": {
+                "style": "plain"
+            },
+            "transpose": 24,
+            "color": "#FFC90E",
+            "shadow": "#DD8500"
+        },
+        {
+            "xpos": 0,
+            "width": 90,
+            "channel": "4",
+            "velocity_sense": false,
+            "style": {
+                "style": "marquee",
+                "speed": 11
+            },
+            "transpose": 10,
+            "color": "#FF7F27",
+            "shadow": "#880015"
+        }
+    ],
+    "kit": {
+        "drums": [
+            {
+                "xpos": 570,
+                "ypos": 30,
+                "note": 40,
+                "gfx": {
+                    "gfx": "bitmap",
+                    "bitmap": "red_rough.bmp"
+                },
+                "decay_time": 30,
+                "style": "plain"
+            },
+            {
+                "xpos": 30,
+                "ypos": 30,
+                "note": 41,
+                "gfx": {
+                    "gfx": "bitmap",
+                    "bitmap": "blue_rough.bmp"
+                },
+                "decay_time": 30,
+                "style": "plain"
+            },
+            {
+                "xpos": 30,
+                "ypos": 380,
+                "note": 42,
+                "gfx": {
+                    "gfx": "bitmap",
+                    "bitmap": "red_solid.bmp"
+                },
+                "decay_time": 30,
+                "style": "plain"
+            },
+            {
+                "xpos": 570,
+                "ypos": 300,
+                "note": 43,
+                "gfx": {
+                    "gfx": "bitmap",
+                    "bitmap": "blue_solid.bmp"
+                },
+                "decay_time": 30,
+                "style": "plain"
+            },
+            {
+                "xpos": 280,
+                "ypos": 200,
+                "note": 39,
+                "gfx": {
+                    "gfx": "bitmap",
+                    "bitmap": "nijika.bmp"
+                },
+                "decay_time": 50,
+                "style": "decay"
+            }
+        ]
+    },
+    "texts": [
+        {
+            "xpos": 200,
+            "ypos": 180,
+            "channel": "16",
+            "base_note": 30,
+            "direction": "horizontal",
+            "lines": [
+                "no text in this one but hi meow～",
+                "これは日本語のテキスト見本"
+            ],
+            "text_style": "ByLine",
+            "color": "#FFFFFF",
+            "visibility": false
+        }
+    ]
+}
