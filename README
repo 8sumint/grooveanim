@@ -6,16 +6,18 @@ requires a midi source (some loopback driver?)
 or if you're cool use a hardware sequencer
 
 editor keys:
-    enter   enter the editor
+    enter   enter (or exit) the editor
     arrows  move focused instrument
-        +shift, ctrl for different amounts
+        with shift and/or ctrl for different amounts
     numbers select focused instrument (shift+numbers for more)
     C       focus chords
     D       focus drums
-    A       toggle showing all instruments
+    A       toggle showing all instruments at once
+    
+global keys:
     R       reload setup from disk
     S       save setup back to disk
-    Q       quit
+    Q       quit the program
 
 oh you can also click the mouse to move the focused instrument there
 
